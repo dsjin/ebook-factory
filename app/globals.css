@@ -3,6 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --page-max-width: 1400px;
 }
 
 @theme inline {
@@ -23,4 +24,10 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav-content {
+  max-width: var(--page-max-width);
+  width: 100%;
+  margin: 0 auto; /* center content within the viewport */
 }
