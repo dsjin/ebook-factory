@@ -31,3 +31,9 @@ body {
   width: 100%;
   margin: 0 auto; /* center content within the viewport */
 }
+
+.page-content {
+  max-width: var(--page-max-width);
+  width: 100%;
+  margin: 0 auto; /* center content within the viewport */
+}

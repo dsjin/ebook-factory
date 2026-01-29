@@ -28,8 +28,15 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar />
-        {children}
+        <div className="min-h-screen flex flex-col">
+          <Navbar />
+          <main className="flex-1">
+            {children}
+          </main>
+          <footer className="bg-sky-500 text-white p-4 text-center">
+            Made with ❤️ by DSJIN
+          </footer>
+        </div>
       </body>
     </html>
   );
