@@ -11,9 +11,6 @@ export default function Home() {
           <button className="bg-sky-500 text-white px-4 py-2 rounded-md hover:bg-sky-600 cursor-pointer">
             Get Started
           </button>
-          <button className="bg-sky-500 text-white px-4 py-2 rounded-md hover:bg-sky-600 cursor-pointer">
-            Upload
-          </button>
         </div>
       </div>
     </div>

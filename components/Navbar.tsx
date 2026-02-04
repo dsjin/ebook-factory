@@ -18,10 +18,7 @@ const Navbar = () => {
                 Home
               </li>
               <li className="px-3 py-2 hover:bg-sky-700 cursor-pointer transition-colors rounded-xl">
-                List
-              </li>
-              <li className="px-3 py-2 hover:bg-sky-700 cursor-pointer transition-colors rounded-xl">
-                Upload
+                Ebooks
               </li>
             </ul>
           </div>
@@ -54,7 +51,7 @@ const Navbar = () => {
       <MobileSlidingPanel
         open={mobileOpen}
         onClose={() => setMobileOpen(false)}
-        navItems={[{ href: '/', label: 'Home' }, { href: '/list', label: 'List' }, { href: '/upload', label: 'Upload' }]}
+        navItems={[{ href: '/', label: 'Home' }, { href: '/ebooks', label: 'Ebooks' }]}
         userName="Alice"
         avatarUrl="/next.svg"
         onSignOut={() => console.log('sign out')}
