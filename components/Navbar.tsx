@@ -1,11 +1,14 @@
 "use client"
 
 import React, { useState } from "react"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 import NavbarUserMenu from "./NavbarUserMenu"
 import MobileSlidingPanel from "./MobileSlidingPanel"
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const pathname = usePathname()
 
   return (
     <>
@@ -14,11 +17,21 @@ const Navbar = () => {
           <div className="flex items-center gap-3">
             <h1 className="h-fit">Book Factory</h1>
             <ul className="hidden md:flex gap-3">
-              <li className="px-3 py-2 bg-sky-700 hover:bg-sky-700 cursor-pointer transition-colors rounded-xl">
-                Home
+              <li>
+                <Link
+                  href="/"
+                  className={`px-3 py-2 cursor-pointer transition-colors rounded-xl ${pathname === '/' ? 'bg-sky-700' : 'hover:bg-sky-700'}`}
+                >
+                  Home
+                </Link>
               </li>
-              <li className="px-3 py-2 hover:bg-sky-700 cursor-pointer transition-colors rounded-xl">
-                Ebooks
+              <li>
+                <Link
+                  href="/ebooks"
+                  className={`px-3 py-2 cursor-pointer transition-colors rounded-xl ${pathname?.startsWith('/ebooks') ? 'bg-sky-700' : 'hover:bg-sky-700'}`}
+                >
+                  Ebooks
+                </Link>
               </li>
             </ul>
           </div>

@@ -1,4 +1,5 @@
 import React from "react"
+import { usePathname } from "next/navigation"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -14,6 +15,7 @@ type Props = {
 }
 
 export default function MobileSlidingPanel({ open, onClose, navItems, userName = "User", avatarUrl, onSignOut }: Props) {
+  const pathname = usePathname()
   return (
     <div className={`fixed inset-0 z-40 ${open ? 'pointer-events-auto' : 'pointer-events-none'}`}>
       <div
@@ -52,7 +54,12 @@ export default function MobileSlidingPanel({ open, onClose, navItems, userName =
 
           <nav className="flex flex-col gap-1">
             {navItems.map((n) => (
-              <Link key={n.href} href={n.href} className="px-3 py-2 rounded hover:bg-gray-100" onClick={onClose}>
+              <Link
+                key={n.href}
+                href={n.href}
+                className={`px-3 py-2 rounded ${pathname === n.href ? 'bg-sky-100' : 'hover:bg-gray-100'}`}
+                onClick={onClose}
+              >
                 {n.label}
               </Link>
             ))}
@@ -61,10 +68,18 @@ export default function MobileSlidingPanel({ open, onClose, navItems, userName =
           <hr className="my-4" />
 
           <nav className="flex flex-col gap-1">
-            <Link href="/profile" className="px-3 py-2 rounded hover:bg-gray-100" onClick={onClose}>
+            <Link
+              href="/profile"
+              className={`px-3 py-2 rounded ${pathname === '/profile' ? 'bg-sky-100' : 'hover:bg-gray-100'}`}
+              onClick={onClose}
+            >
               Profile
             </Link>
-            <Link href="/settings" className="px-3 py-2 rounded hover:bg-gray-100" onClick={onClose}>
+            <Link
+              href="/settings"
+              className={`px-3 py-2 rounded ${pathname === '/settings' ? 'bg-sky-100' : 'hover:bg-gray-100'}`}
+              onClick={onClose}
+            >
               Settings
             </Link>
             <button
